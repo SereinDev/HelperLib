@@ -11,7 +11,7 @@
 /// <reference path="settings.d.ts"/>
 
 /**
- * # Serein JS插件辅助
+ * # HelperLib
  *
  * ## 使用方法
  *
@@ -20,14 +20,14 @@
  * ```txt
  * ├─Serein-??.exe
  * └─plugins
- *    └─SereinJSPluginHelper
- *           index.d.ts
- *           ………（其他.d.ts文件）
+ *   └─HelperLib
+ *        index.d.ts
+ *        ………（其他.d.ts文件）
  * ```
  * 3. 在你的插件第一行加上下面这两行
  * ```js
- * /// <reference path="SereinJSPluginHelper/index.d.ts"/>
- * ///@ts-check
+ * /// <reference path="HelperLib/index.d.ts"/>
+ * /// @ts-check
  * ```
  * 4. 然后你就可以快乐地写插件了，这时候就可以自动补全和显示函数参数了！！
  *
