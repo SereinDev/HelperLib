@@ -1,84 +1,83 @@
-/// ---------- 函数 ----------
-/// <reference path="serein.d.ts"/>
-/// <reference path="server.d.ts"/>
-/// <reference path="msg.d.ts"/>
-/// <reference path="system.d.ts"/>
-/// <reference path="binder.d.ts"/>
-/// <reference path="export.d.ts"/>
-
-/// ---------- 类型 ----------
-/// <reference path="classes.d.ts"/>
-/// <reference path="settings.d.ts"/>
+/// <reference no-default-lib="true"/>
+/// <reference lib="ESNext" />
+/// <reference path="clr.d.ts"/>
+/// <reference path="console.d.ts"/>
+/// <reference path="encoding.d.ts"/>
+/// <reference path="storages.d.ts"/>
+/// <reference path="scriptInstance.d.ts"/>
+/// <reference path="modules/fs.d.ts"/>
+/// <reference path="modules/process.d.ts"/>
 
 /**
- * # HelperLib
- *
- * ## 使用方法
- *
- * 1. 建议使用[Visual Studio Code](https://code.visualstudio.com/)编写插件
- * 2. 将此文件夹复制到`plugins`下，目录结构示意如下
- * ```txt
- * ├─Serein-??.exe
- * └─plugins
- *   └─HelperLib
- *        index.d.ts
- *        ………（其他.d.ts文件）
- * ```
- * 3. 在你的插件第一行加上下面这两行
- * ```js
- * /// <reference path="HelperLib/index.d.ts"/>
- * /// @ts-check
- * ```
- * 4. 然后你就可以快乐地写插件了，这时候就可以自动补全和显示函数参数了！！
- *
- * ## 更多介绍
- *
- * 👉 https://market.serein.cc/resources/SereinJSPluginHelper 👈
- * @version v1.3.5(0716)
+ * 当前脚本实例
+ * @since 2.0.0
  */
-declare namespace serein {
-    /**
-     * 所在文件夹路径
-     */
-    const path: string;
-
-    /**
-     * Serein版本
-     */
-    const version: 'v1.3.5';
-
-    /**
-     * JS命名空间
-     */
-    const namespace: string;
-
-    /**
-     * 启动时间
-     */
-    const startTime: Date;
-
-    /**
-     * Serein类型
-     * @enum `0` - 控制台
-     * @enum `1` - Winform
-     * @enum `2` - WPF
-     */
-    const type: 0 | 1 | 2;
-
-    /**
-     * Serein类型名称
-     */
-    const typeName: 'console' | 'winform' | 'wpf';
-}
+declare const serein: ScriptInstance;
 
 /**
- * 导入命名空间
- * @param namespace 命名空间名称
- * @returns 命名空间对象
+ * 控制台
+ * @since 2.0.0
  */
-declare const importNamespace: (namespace: string) => any;
+declare const console: Console;
 
 /**
- * .Net System对象
+ * 当前文件路径
+ * @since 2.0.0
  */
-declare const System: any;
+declare const __filename: string;
+
+/**
+ * 当前目录路径
+ * @since 2.0.0
+ */
+declare const __dirname: string;
+
+/**
+ * 本地储存
+ * @see https://sereindev.github.io/docs/development/plugins/references/storages#%E6%9C%AC%E5%9C%B0%E5%82%A8%E5%AD%98
+ * @since 2.0.0
+ */
+declare const loaclStorage: Storage;
+
+/**
+ * 会话储存
+ * @see https://sereindev.github.io/docs/development/plugins/references/storages#%E4%BC%9A%E8%AF%9D%E5%82%A8%E5%AD%98
+ * @since 2.0.0
+ */
+declare const sessionStorage: Storage;
+
+/**
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout
+ * @since 2.0.0
+ */
+declare function setTimeout(
+    handler: Function,
+    timeout: number,
+    ...arguments: any[]
+): number;
+
+/**
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/clearTimeout
+ * @since 2.0.0
+ */
+declare function clearTimeout(handle?: number): void;
+
+/**
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setInterval
+ * @since 2.0.0
+ */
+declare function setInterval(
+    handler: Function,
+    timeout: number,
+    ...arguments: any[]
+): number;
+
+/**
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/clearInterval
+ * @since 2.0.0
+ */
+declare function clearInterval(handle?: number): void;
+
+declare const window: undefined;
+declare const exports: undefined;
+declare const System: ClrType;
