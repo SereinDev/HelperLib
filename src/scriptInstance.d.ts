@@ -1,10 +1,30 @@
 /// <reference path="connection.d.ts"/>
 /// <reference path="metadata.d.ts"/>
-/// <reference path="net.d.ts"/>
+/// <reference path="clr.d.ts"/>
+/// <reference path="hardwareInfo.d.ts"/>
 /// <reference path="permission.d.ts"/>
+/// <reference path="setting.d.ts"/>
 /// <reference path="server.d.ts"/>
 
 declare interface ScriptInstance {
+    /**
+     * 硬件信息
+     * @since 2.0.0
+     */
+    get hardwareInfo(): HardwareInfo;
+
+    /**
+     * 插件Id
+     * @since 2.0.0
+     */
+    readonly id: string;
+
+    /**
+     * 设置
+     * @since 2.0.0
+     */
+    readonly setting: Setting;
+
     /**
      * 元数据
      * @see https://sereindev.github.io/docs/development/plugins/references/metadata
