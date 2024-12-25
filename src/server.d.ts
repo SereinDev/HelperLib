@@ -102,7 +102,7 @@ declare interface ServerInfo {
      * 进程CPU使用率
      * @since 2.0.0
      */
-    CPUUsage: number;
+    cpuUsage: number;
 
     /**
      * MineStat
