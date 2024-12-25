@@ -1,227 +1,227 @@
 /// <reference path="clr.d.ts"/>
 
 declare interface HardwareInfo {
-    operatingSystem: OperatingSystem;
-    memoryStatus: MemoryStatus;
-    batteryList: Battery[];
-    biosList: Bios[];
-    computerSystemList: ComputerSystem[];
-    cpuList: CpuList[];
-    driveList: Drive[];
-    keyboardList: Keyboard[];
-    memoryList: Memory[];
-    monitorList: Monitor[];
-    motherboardList: Motherboard[];
-    mouseList: Mouse[];
-    networkAdapterList: ClrType[];
-    printerList: Printer[];
-    soundDeviceList: SoundDevice[];
-    videoControllerList: VideoController[];
+    readonly operatingSystem: OperatingSystem;
+    readonly memoryStatus: MemoryStatus;
+    readonly batteryList: Battery[];
+    readonly biosList: Bios[];
+    readonly computerSystemList: ComputerSystem[];
+    readonly cpuList: Cpu[];
+    readonly driveList: Drive[];
+    readonly keyboardList: Keyboard[];
+    readonly memoryList: Memory[];
+    readonly monitorList: Monitor[];
+    readonly motherboardList: Motherboard[];
+    readonly mouseList: Mouse[];
+    readonly networkAdapterList: ClrType[];
+    readonly printerList: Printer[];
+    readonly soundDeviceList: SoundDevice[];
+    readonly videoControllerList: VideoController[];
 }
 
 declare interface OperatingSystem {
-    name: string;
-    versionString: string;
-    version: ClrType;
+    get name(): string;
+    get versionString(): string;
+    get version(): ClrType;
 }
 
 declare interface MemoryStatus {
-    totalPhysical: number;
-    availablePhysical: number;
-    totalPageFile: number;
-    availablePageFile: number;
-    totalVirtual: number;
-    availableVirtual: number;
-    availableExtendedVirtual: number;
+    get totalPhysical(): number;
+    get availablePhysical(): number;
+    get totalPageFile(): number;
+    get availablePageFile(): number;
+    get totalVirtual(): number;
+    get availableVirtual(): number;
+    get availableExtendedVirtual(): number;
 }
 
 declare interface Battery {
-    fullChargeCapacity: number;
-    designCapacity: number;
-    batteryStatus: number;
-    estimatedChargeRemaining: number;
-    estimatedRunTime: number;
-    expectedLife: number;
-    maxRechargeTime: number;
-    timeOnBattery: number;
-    timeToFullCharge: number;
-    batteryStatusDescription: string;
+    get fullChargeCapacity(): number;
+    get designCapacity(): number;
+    get batteryStatus(): number;
+    get estimatedChargeRemaining(): number;
+    get estimatedRunTime(): number;
+    get expectedLife(): number;
+    get maxRechargeTime(): number;
+    get timeOnBattery(): number;
+    get timeToFullCharge(): number;
+    get batteryStatusDescription(): string;
 }
 
 declare interface Bios {
-    caption: string;
-    description: string;
-    manufacturer: string;
-    name: string;
-    releaseDate: string;
-    serialNumber: string;
-    softwareElementID: string;
-    version: ClrType;
+    get caption(): string;
+    get description(): string;
+    get manufacturer(): string;
+    get name(): string;
+    get releaseDate(): string;
+    get serialNumber(): string;
+    get softwareElementID(): string;
+    get version(): ClrType;
 }
 
 declare interface ComputerSystem {
-    caption: string;
-    description: string;
-    identifyingNumber: string;
-    name: string;
-    SKUNumber: string;
-    UUID: string;
-    vendor: string;
-    version: ClrType;
+    get caption(): string;
+    get description(): string;
+    get identifyingNumber(): string;
+    get name(): string;
+    get SKUNumber(): string;
+    get UUID(): string;
+    get vendor(): string;
+    get version(): ClrType;
 }
 
-declare interface CpuList {
-    caption: string;
-    currentClockSpeed: number;
-    description: string;
-    l1InstructionCacheSize: number;
-    l1DataCacheSize: number;
-    l2CacheSize: number;
-    l3CacheSize: number;
-    manufacturer: string;
-    maxClockSpeed: number;
-    name: string;
-    numberOfCores: number;
-    numberOfLogicalProcessors: number;
-    processorId: string;
-    secondLevelAddressTranslationExtensions: boolean;
-    socketDesignation: string;
-    virtualizationFirmwareEnabled: boolean;
-    VMMonitorModeExtensions: boolean;
-    percentProcessorTime: number;
-    cpuCoreList: CpuCore[];
+declare interface Cpu {
+    get caption(): string;
+    get currentClockSpeed(): number;
+    get description(): string;
+    get l1InstructionCacheSize(): number;
+    get l1DataCacheSize(): number;
+    get l2CacheSize(): number;
+    get l3CacheSize(): number;
+    get manufacturer(): string;
+    get maxClockSpeed(): number;
+    get name(): string;
+    get numberOfCores(): number;
+    get numberOfLogicalProcessors(): number;
+    get processorId(): string;
+    get secondLevelAddressTranslationExtensions(): boolean;
+    get socketDesignation(): string;
+    get virtualizationFirmwareEnabled(): boolean;
+    get VMMonitorModeExtensions(): boolean;
+    get percentProcessorTime(): number;
+    get cpuCoreList(): CpuCore[];
 }
 
 declare interface CpuCore {
-    name: string;
-    percentProcessorTime: number;
+    get name(): string;
+    get percentProcessorTime(): number;
 }
 
 declare interface Drive {
-    partitionList: Partition[];
-    caption: string;
-    description: string;
-    firmwareRevision: string;
-    index: number;
-    manufacturer: string;
-    model: string;
-    name: string;
-    partitions: number;
-    serialNumber: string;
-    size: number;
+    get partitionList(): Partition[];
+    get caption(): string;
+    get description(): string;
+    get firmwareRevision(): string;
+    get index(): number;
+    get manufacturer(): string;
+    get model(): string;
+    get name(): string;
+    get partitions(): number;
+    get serialNumber(): string;
+    get size(): number;
 }
 
 declare interface Partition {
-    volumeList: Volume[];
-    bootable: boolean;
-    bootPartition: boolean;
-    caption: string;
-    description: string;
-    diskIndex: number;
-    index: number;
-    name: string;
-    primaryPartition: boolean;
-    size: number;
-    startingOffset: number;
+    get volumeList(): Volume[];
+    get bootable(): boolean;
+    get bootPartition(): boolean;
+    get caption(): string;
+    get description(): string;
+    get diskIndex(): number;
+    get index(): number;
+    get name(): string;
+    get primaryPartition(): boolean;
+    get size(): number;
+    get startingOffset(): number;
 }
 
 declare interface Volume {
-    caption: string;
-    compressed: boolean;
-    description: string;
-    fileSystem: string;
-    freeSpace: number;
-    name: string;
-    size: number;
-    volumeName: string;
-    volumeSerialNumber: string;
+    get caption(): string;
+    get compressed(): boolean;
+    get description(): string;
+    get fileSystem(): string;
+    get freeSpace(): number;
+    get name(): string;
+    get size(): number;
+    get volumeName(): string;
+    get volumeSerialNumber(): string;
 }
 
 declare interface Keyboard {
-    caption: string;
-    description: string;
-    name: string;
-    numberOfFunctionKeys: number;
+    get caption(): string;
+    get description(): string;
+    get name(): string;
+    get numberOfFunctionKeys(): number;
 }
 
 declare interface Memory {
-    bankLabel: string;
-    capacity: number;
-    formFactor: number;
-    manufacturer: string;
-    maxVoltage: number;
-    minVoltage: number;
-    partNumber: string;
-    serialNumber: string;
-    speed: number;
+    get bankLabel(): string;
+    get capacity(): number;
+    get formFactor(): number;
+    get manufacturer(): string;
+    get maxVoltage(): number;
+    get minVoltage(): number;
+    get partNumber(): string;
+    get serialNumber(): string;
+    get speed(): number;
 }
 
 declare interface Monitor {
-    caption: string;
-    description: string;
-    monitorManufacturer: string;
-    monitorType: string;
-    name: string;
-    pixelsPerXLogicalInch: number;
-    pixelsPerYLogicalInch: number;
-    active: boolean;
-    manufacturerName: string;
-    productCodeID: string;
-    serialNumberID: string;
-    userFriendlyName: string;
-    weekOfManufacture: number;
-    yearOfManufacture: number;
+    get caption(): string;
+    get description(): string;
+    get monitorManufacturer(): string;
+    get monitorType(): string;
+    get name(): string;
+    get pixelsPerXLogicalInch(): number;
+    get pixelsPerYLogicalInch(): number;
+    get active(): boolean;
+    get manufacturerName(): string;
+    get productCodeID(): string;
+    get serialNumberID(): string;
+    get userFriendlyName(): string;
+    get weekOfManufacture(): number;
+    get yearOfManufacture(): number;
 }
 
 declare interface Motherboard {
-    manufacturer: string;
-    product: string;
-    serialNumber: string;
+    get manufacturer(): string;
+    get product(): string;
+    get serialNumber(): string;
 }
 
 declare interface Mouse {
-    caption: string;
-    description: string;
-    manufacturer: string;
-    name: string;
-    numberOfButtons: number;
+    get caption(): string;
+    get description(): string;
+    get manufacturer(): string;
+    get name(): string;
+    get numberOfButtons(): number;
 }
 
 declare interface Printer {
-    caption: string;
-    default: boolean;
-    description: string;
-    horizontalResolution: number;
-    local: boolean;
-    name: string;
-    network: boolean;
-    shared: boolean;
-    verticalResolution: number;
+    get caption(): string;
+    get default(): boolean;
+    get description(): string;
+    get horizontalResolution(): number;
+    get local(): boolean;
+    get name(): string;
+    get network(): boolean;
+    get shared(): boolean;
+    get verticalResolution(): number;
 }
 
 declare interface SoundDevice {
-    caption: string;
-    description: string;
-    manufacturer: string;
-    name: string;
-    productName: string;
+    get caption(): string;
+    get description(): string;
+    get manufacturer(): string;
+    get name(): string;
+    get productName(): string;
 }
 
 declare interface VideoController {
-    adapterRAM: number;
-    caption: string;
-    currentBitsPerPixel: number;
-    currentHorizontalResolution: number;
-    currentNumberOfColors: number;
-    currentRefreshRate: number;
-    currentVerticalResolution: number;
-    description: string;
-    driverDate: string;
-    driverVersion: string;
-    manufacturer: string;
-    maxRefreshRate: number;
-    minRefreshRate: number;
-    name: string;
-    videoModeDescription: string;
-    videoProcessor: string;
+    get adapterRAM(): number;
+    get caption(): string;
+    get currentBitsPerPixel(): number;
+    get currentHorizontalResolution(): number;
+    get currentNumberOfColors(): number;
+    get currentRefreshRate(): number;
+    get currentVerticalResolution(): number;
+    get description(): string;
+    get driverDate(): string;
+    get driverVersion(): string;
+    get manufacturer(): string;
+    get maxRefreshRate(): number;
+    get minRefreshRate(): number;
+    get name(): string;
+    get videoModeDescription(): string;
+    get videoProcessor(): string;
 }

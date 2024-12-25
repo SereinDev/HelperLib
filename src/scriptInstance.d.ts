@@ -9,6 +9,7 @@
 declare interface ScriptInstance {
     /**
      * 硬件信息
+     * @see https://sereindev.github.io/docs/development/plugins/references/others/#%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF
      * @since 2.0.0
      */
     get hardwareInfo(): HardwareInfo;
@@ -21,6 +22,7 @@ declare interface ScriptInstance {
 
     /**
      * 设置
+     * @see https://sereindev.github.io/docs/development/plugins/references/others/#%E8%AE%BE%E7%BD%AE
      * @since 2.0.0
      */
     readonly setting: Setting;
@@ -257,6 +259,23 @@ declare interface ScriptInstance {
      * @since 2.0.0
      */
     setListener(event: 'PluginsUnloading', callback: () => void): void;
+
+    /**
+     * 输出信息
+     * @param data 输出内容
+     * @see https://sereindev.github.io/docs/development/plugins/references/output#%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF
+     * @since 2.0.0
+     */
+    log(...data: string[]): void;
+
+    /**
+     * 获取内置服务
+     * @param type 类型文本
+     * @returns 内置服务对象
+     * @see https://sereindev.github.io/docs/development/plugins/references/others/#%E8%8E%B7%E5%8F%96%E6%9C%8D%E5%8A%A1
+     * @since 2.0.0
+     */
+    getService(type: string): ClrType;
 }
 
 declare type EventName =
