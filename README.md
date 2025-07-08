@@ -1,7 +1,7 @@
 # HelperLib
 
 - 适用于 **Serein**的`JavaScript`插件的 `TypeScript`类型声明库
-- 当前适用版本 `2.0.0`
+- 当前适用版本 `2.1.0`
 
 ## 使用方法
 

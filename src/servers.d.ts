@@ -1,12 +1,29 @@
 /// <reference path="encoding.d.ts"/>
 
-declare interface ServerBase {
+declare interface Server {
+    /**
+     * 服务器Id
+     * @since 2.1.0
+     */
+    readonly id: string;
+
+    /**
+     * Logger
+     * @since 2.1.0
+     */
+    readonly logger: ServerLogger;
+
+    /**
+     * 服务器输出历史
+     * @since 2.0.0
+     */
+    get commandHistory(): readonly string[];
+
     /**
      * 服务器状态
      * @see https://sereindev.github.io/docs/development/plugins/references/servers/#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81
      * @since 2.0.0
      */
-
     get status(): boolean;
 
     /**
@@ -22,6 +39,12 @@ declare interface ServerBase {
      * @since 2.0.0
      */
     get info(): ServerInfo;
+
+    /**
+     * 重启状态
+     * @since 2.1.0
+     */
+    get restartStatus(): RestartStatus;
 
     /**
      * 启动服务器
@@ -59,6 +82,31 @@ declare interface ServerBase {
      * @since 2.0.0
      */
     input(command: string): void;
+
+    /**
+     * 请求重启服务器
+     *
+     * @since 2.1.0
+     */
+    requestRestart(): void;
+}
+
+declare interface ServerLogger {
+    readonly id: string;
+    readonly history: ReadonlyArray<{
+        type: ServerOutputType;
+        data: string;
+    }>;
+}
+
+declare enum ServerOutputType {
+    StandardOutput = 0,
+
+    StandardInput = 1,
+
+    InternalInfo = 2,
+
+    InternalError = 3,
 }
 
 declare interface ServerInfo {
@@ -247,6 +295,12 @@ declare enum OutputStyle {
     RawText = 1,
 }
 
+declare enum RestartStatus {
+    None = 0,
+    Waiting = 1,
+    Preparing = 2,
+}
+
 declare interface ServerManager {
     /**
      * 服务器Id列表
@@ -262,7 +316,7 @@ declare interface ServerManager {
      * @see https://sereindev.github.io/docs/development/plugins/references/servers/#%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE
      * @since 2.0.0
      */
-    add(id: string, configuration: Configuration): ServerBase;
+    add(id: string, configuration: Configuration): Server;
 
     /**
      * 删除服务器配置
@@ -272,6 +326,12 @@ declare interface ServerManager {
      * @since 2.0.0
      */
     remove(id: string): boolean;
+
+    /**
+     * 保存所有服务器配置
+     * @since 2.0.0
+     */
+    saveAll(): void;
 
     /**
      * 是否有服务器正在运行
@@ -286,5 +346,5 @@ declare type ServerManagerIndexer = {
      * @see https://sereindev.github.io/docs/development/plugins/references/servers/#%E6%89%80%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8
      * @since 2.0.0
      */
-    readonly [id: string]: ServerBase;
+    readonly [id: string]: Server;
 };

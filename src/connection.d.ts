@@ -1,48 +1,79 @@
-declare interface ConnectionProperty {
+/// <reference path="command.d.ts"/>
+
+declare interface ConnectionManager {
     /**
      * 是否连接
-     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#%E6%98%AF%E5%90%A6%E8%BF%9E%E6%8E%A5
-     * @since 2.0.0
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#是否连接
+     * @since 2.1.0
      */
-    get active(): boolean;
+    get isActive(): boolean;
+
+    /**
+     * 接收数据包数
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#接收数据包数
+     * @since 2.1.0
+     */
+    get received(): number;
+
+    /**
+     * 发送数据包数
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#发送数据包数
+     * @since 2.1.0
+     */
+    get sent(): number;
+
+    /**
+     * 启动时间
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#启动时间
+     * @since 2.1.0
+     */
+    get startedAt(): Date | null;
 
     /**
      * 启动
-     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#%E5%90%AF%E5%8A%A8
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#启动
      * @since 2.0.0
      */
     start(): void;
 
     /**
      * 停止
-     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#%E5%81%9C%E6%AD%A2
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#停止
      * @since 2.0.0
      */
     stop(): void;
 
     /**
      * 发送文本
-     * @param text 发送的内容 
-     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#%E5%8F%91%E9%80%81%E6%96%87%E6%9C%AC
-     * @since 2.0.0
+     * @param data 发送的内容
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#发送文本
+     * @since 2.1.0
      */
-    sendData(text: string): void;
+    sendDataAsync(data: string): Promise<void>;
 
     /**
-     * 发送群聊消息
+     * 发送消息
+     * @param type 消息类型
      * @param target 群聊Id
      * @param message 消息
-     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#%E5%8F%91%E9%80%81%E7%BE%A4%E8%81%8A%E6%B6%88%E6%81%AF
-     * @since 2.0.0
+     * @param arguments 命令参数
+     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#发送消息
+     * @since 2.1.0
      */
-    sendGroupMsg(target: number, message: string): void;
+    sendMessageAsync(
+        type: TargetType,
+        target: string,
+        message: string,
+        arguments?: CommandArguments
+    ): Promise<void>;
+}
 
-    /**
-     * 发送私聊消息
-     * @param target 用户Id
-     * @param message 消息
-     * @see https://sereindev.github.io/docs/development/plugins/references/connection/#%E5%8F%91%E9%80%81%E7%A7%81%E8%81%8A%E6%B6%88%E6%81%AF
-     * @since 2.0.0
-     */
-    sendPrivateMsg(target: number, message: string): void;
+declare enum TargetType {
+    Private,
+
+    Group,
+
+    Channel,
+
+    Guild,
 }

@@ -34,14 +34,14 @@ declare const __dirname: string;
 
 /**
  * 本地储存
- * @see https://sereindev.github.io/docs/development/plugins/references/storages#%E6%9C%AC%E5%9C%B0%E5%82%A8%E5%AD%98
+ * @see https://sereindev.github.io/docs/development/plugins/references/storages#本地储存
  * @since 2.0.0
  */
-declare const loaclStorage: Storage;
+declare const localStorage: Storage;
 
 /**
  * 会话储存
- * @see https://sereindev.github.io/docs/development/plugins/references/storages#%E4%BC%9A%E8%AF%9D%E5%82%A8%E5%AD%98
+ * @see https://sereindev.github.io/docs/development/plugins/references/storages#会话储存
  * @since 2.0.0
  */
 declare const sessionStorage: Storage;

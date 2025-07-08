@@ -5,7 +5,7 @@ declare interface PermissionProperty {
      * 将节点注册到Serein的权限管理器中，方便用户填写权限配置
      * @param node 节点
      * @param description 描述
-     * @see https://sereindev.github.io/docs/development/plugins/references/permission_group#%E6%B3%A8%E5%86%8C%E8%8A%82%E7%82%B9
+     * @see https://sereindev.github.io/docs/development/plugins/references/permission_group#注册节点
      * @since 2.0.0
      */
     register(node: string, description?: string): void;
@@ -15,7 +15,7 @@ declare interface PermissionProperty {
      *
      * 将节点从Serein的权限管理器中删除
      * @param node 节点
-     * @see https://sereindev.github.io/docs/development/plugins/references/permission_group#%E6%B3%A8%E9%94%80%E8%8A%82%E7%82%B9
+     * @see https://sereindev.github.io/docs/development/plugins/references/permission_group#注销节点
      * @since 2.0.0
      */
     unregister(node: string): void;
