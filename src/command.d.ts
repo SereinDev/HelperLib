@@ -35,6 +35,28 @@ declare interface CommandProperty {
      * @param value 变量值
      */
     setVariable(name: string, value: string | null): void;
+
+    /**
+     * 应用变量
+     * @param input 输入字符串
+     * @param commandContext 命令上下文
+     * @param removeInvalidVariablePatten 移除无效变量
+     */
+    applyVariables(
+        input: string,
+        commandContext?: CommandContext | null,
+        removeInvalidVariablePatten?: boolean
+    ): string;
+}
+
+declare interface CommandContext {
+    match?: ClrType | null;
+
+    packets?: Packets | null;
+
+    serverId?: string | null;
+
+    variables?: Record<string, string | null> | null;
 }
 
 declare enum MatchFieldType {

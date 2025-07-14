@@ -8,27 +8,18 @@ declare interface Packets {
     readonly satoriV1?: EventBody;
 
     /**
-
-    * 用户 Id
-
-    */
-
-    get userId(): number;
+     * 用户 Id
+     */
+    get userId(): string;
 
     /**
-
-    * 群聊 Id
-
-    */
-
-    get groupId(): number;
+     * 群聊 Id
+     */
+    get groupId(): string;
 
     /**
-
-    * 消息内容
-
-    */
-
+     * 消息内容
+     */
     get message(): string;
 }
 

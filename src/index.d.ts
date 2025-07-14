@@ -78,6 +78,6 @@ declare function setInterval(
  */
 declare function clearInterval(handle?: number): void;
 
-declare const window: undefined;
-declare const exports: undefined;
+declare const window: {};
+declare const exports: {};
 declare const System: ClrType;

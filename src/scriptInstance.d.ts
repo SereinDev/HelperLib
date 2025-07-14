@@ -7,6 +7,7 @@
 /// <reference path="permission.d.ts"/>
 /// <reference path="settings.d.ts"/>
 /// <reference path="servers.d.ts"/>
+/// <reference path="webServer.d.ts"/>
 
 declare interface ScriptInstance extends ListenerProvider {
     /**
@@ -100,6 +101,13 @@ declare interface ScriptInstance extends ListenerProvider {
      * @since 2.0.0
      */
     readonly command: CommandProperty;
+
+    /**
+     * 网页服务器
+     * @see https://sereindev.github.io/docs/development/plugins/references/web_server
+     * @since 2.1.0
+     */
+    readonly webServer: WebServer
 
     /**
      * 导出

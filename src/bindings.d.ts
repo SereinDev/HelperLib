@@ -24,7 +24,7 @@ declare interface BindingRecord {
     get time(): Date;
 }
 
-declare class BindingManager {
+declare interface BindingManager {
     /**
      * 所有绑定记录
      * @see https://sereindev.github.io/docs/development/plugins/references/binding#所有绑定记录

@@ -54,7 +54,7 @@ declare interface ConnectionManager {
     /**
      * 发送消息
      * @param type 消息类型
-     * @param target 群聊Id
+     * @param target 发送目标
      * @param message 消息
      * @param arguments 命令参数
      * @see https://sereindev.github.io/docs/development/plugins/references/connection/#发送消息
@@ -69,11 +69,13 @@ declare interface ConnectionManager {
 }
 
 declare enum TargetType {
-    Private,
+    Auto = 0,
 
-    Group,
+    Private = 1,
 
-    Channel,
+    Group = 2,
 
-    Guild,
+    Channel = 3,
+
+    Guild = 4,
 }
