@@ -133,17 +133,17 @@ declare interface ApplicationSetting {
 
     cliCommandHeader: string;
 
-    pluginEventMaxWaitingTime: number;
+    maximumWaitTimeForPluginEvents: number;
 
-    jsGlobalAssemblies: string[];
+    jsDefaultAssemblies: string[];
 
-    jsPatternToSkipLoadingSingleFile: string[];
+    jsFilesToExcludeFromLoading: string[];
 
-    disableBindingManagerWhenServerClosed: boolean;
+    disableBindingManagerWhenAllServersStopped: boolean;
 
-    regexForCheckingGameId: string;
+    gameIdValidationPattern: string;
 
-    pattenForEnableMatchingMuiltLines: string[];
+    multiLineMatchingPatterns: string[];
 }
 
 declare interface Setting {

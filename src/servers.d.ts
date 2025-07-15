@@ -93,10 +93,10 @@ declare interface Server {
 
 declare interface ServerLogger {
     readonly id: string;
-    readonly history: ReadonlyArray<{
+    readonly history: readonly {
         type: ServerOutputType;
         data: string;
-    }>;
+    }[];
 }
 
 declare enum ServerOutputType {
@@ -114,49 +114,49 @@ declare interface ServerInfo {
      * 启动文件
      * @since 2.0.0
      */
-    fileName: string | null;
+    get fileName(): string | null;
 
     /**
      * 启动参数
      * @since 2.0.0
      */
-    argument: string | null;
+    get argument(): string | null;
 
     /**
      * 启动时间
      * @since 2.0.0
      */
-    startTime: Date | null;
+    get startTime(): Date | null;
 
     /**
      * 关闭时间
      * @since 2.0.0
      */
-    exitTime: Date | null;
+    get exitTime(): Date | null;
 
     /**
      * 输出行数
      * @since 2.0.0
      */
-    outputLines: number;
+    get outputLines(): number;
 
     /**
      * 输入行数
      * @since 2.0.0
      */
-    inputLines: number;
+    get inputLines(): number;
 
     /**
      * 进程CPU使用率
      * @since 2.0.0
      */
-    cpuUsage: number;
+    get cpuUsage(): number;
 
     /**
      * MineStat
      * @since 2.0.0
      */
-    stat: object | null;
+    get stat(): object | null;
 }
 
 declare type Configuration = {
@@ -321,11 +321,10 @@ declare interface ServerManager {
     /**
      * 删除服务器配置
      * @param id 服务器Id
-     * @returns 删除结果
      * @see https://sereindev.github.io/docs/development/plugins/references/servers/#%E5%88%A0%E9%99%A4%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE
      * @since 2.0.0
      */
-    remove(id: string): boolean;
+    remove(id: string): void;
 
     /**
      * 保存所有服务器配置
